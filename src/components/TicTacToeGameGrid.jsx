@@ -1,8 +1,17 @@
 import '../styles/tictactoegamegrid.css';
 
-function TicTacToeGameGrid({ currentPlayer, selectedCells, onCellClick }) {
+function TicTacToeGameGrid({
+  gameOver,
+  currentPlayer,
+  selectedCells,
+  onCellClick,
+}) {
   return (
-    <div className={`game__grid game__grid-turn_${currentPlayer}`}>
+    <div
+      className={`game__grid ${
+        gameOver ? 'game__grid-game_over' : `game__grid-turn_${currentPlayer}`
+      }`}
+    >
       {Array(9)
         .fill()
         .map((val, ind) => (

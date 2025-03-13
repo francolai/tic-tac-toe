@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Mogra&display=swap');
+
+.game__container {
+  font-family: 'Mogra', system-ui;
+  display: flex;
+  margin: 0 auto;
+  width: 30rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game__header {
+  font-size: 2rem;
+}
