@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+.game__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 1px solid black;
+  width: 25rem;
+  height: 25rem;
+}
+
+.game__grid * {
+  border: 1px solid black;
+}
+
+.game__grid .nought {
+  background-image: url(../nought.png);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.game__grid .cross {
+  background-image: url(../cross.png);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.game__grid-turn_nought .unselected {
+  background-image: url(../nought.png);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 1);
+  background-blend-mode: lighten;
+}
+
+.game__grid-turn_nought .unselected:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.game__grid-turn_cross .unselected {
+  background-image: url(../cross.png);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 1);
+  background-blend-mode: lighten;
+}
+
+.game__grid-turn_cross .unselected:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
