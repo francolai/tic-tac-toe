@@ -6,29 +6,75 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  border: 1px solid black;
-  width: 25rem;
-  height: 25rem;
+  width: 80%;
+  aspect-ratio: 1 / 1;
 }
 
 .game__grid * {
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
-.game__grid .nought {
+.game__grid-cell_1 {
+  border-top: none;
+  border-left: none;
+}
+
+.game__grid-cell_2 {
+  border-top: none;
+}
+
+.game__grid-cell_3 {
+  border-top: none;
+  border-right: none;
+}
+
+.game__grid-cell_4 {
+  border-left: none;
+}
+
+.game__grid-cell_6 {
+  border-right: none;
+}
+
+.game__grid-cell_7 {
+  border-bottom: none;
+  border-left: none;
+}
+
+.game__grid-cell_8 {
+  border-bottom: none;
+}
+
+.game__grid-cell_9 {
+  border-bottom: none;
+  border-right: none;
+}
+
+.game__grid div.nought {
   background-image: url(../nought.png);
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
+  animation: fade-in 0.2s;
 }
 
-.game__grid .cross {
+.game__grid div.cross {
   background-image: url(../cross.png);
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
+  animation: fade-in 0.2s;
 }
-.game__grid-turn_nought .unselected {
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.game__grid-turn_nought div.unselected {
   background-image: url(../nought.png);
   background-size: 75%;
   background-repeat: no-repeat;
@@ -37,11 +83,11 @@
   background-blend-mode: lighten;
 }
 
-.game__grid-turn_nought .unselected:hover {
+.game__grid-turn_nought div.unselected:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.game__grid-turn_cross .unselected {
+.game__grid-turn_cross div.unselected {
   background-image: url(../cross.png);
   background-size: 75%;
   background-repeat: no-repeat;
@@ -50,6 +96,6 @@
   background-blend-mode: lighten;
 }
 
-.game__grid-turn_cross .unselected:hover {
+.game__grid-turn_cross div.unselected:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }

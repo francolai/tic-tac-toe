@@ -10,6 +10,32 @@ function newGameGrid() {
   ];
 }
 
+function checkWinConditions(grid) {
+  return (
+    (grid[0][0] && grid[0][0] === grid[0][1] && grid[0][0] === grid[0][2]) ||
+    (grid[1][0] && grid[1][0] === grid[1][1] && grid[1][0] === grid[1][2]) ||
+    (grid[2][0] && grid[2][0] === grid[2][1] && grid[2][0] === grid[2][2]) ||
+    (grid[0][0] && grid[0][0] === grid[1][0] && grid[0][0] === grid[2][0]) ||
+    (grid[0][1] && grid[0][1] === grid[1][1] && grid[0][1] === grid[2][1]) ||
+    (grid[0][2] && grid[0][2] === grid[1][2] && grid[0][2] === grid[2][2]) ||
+    (grid[0][0] && grid[0][0] === grid[1][1] && grid[0][0] === grid[2][2]) ||
+    (grid[2][0] && grid[2][0] === grid[1][1] && grid[2][0] === grid[0][2])
+  );
+}
+
+function isFull(grid) {
+  return (
+    grid[0][0] &&
+    grid[0][1] &&
+    grid[0][2] &&
+    grid[1][0] &&
+    grid[1][1] &&
+    grid[1][2] &&
+    grid[2][0] &&
+    grid[2][1] &&
+    grid[2][2]
+  );
+}
 /**
  * Represents a tic-tac-toe game instance.
  */
@@ -50,7 +76,6 @@ class TicTacToe {
    * @param {number} cellId - The id of the cell (1 ~ 9)
    */
   play(cellId) {
-    console.log(this.grid);
     if (this.isGameOver()) {
       return console.log(
         'Game Over. Cannot play anymore, please start a new game!'
@@ -64,7 +89,7 @@ class TicTacToe {
     }
     this.grid[rowInd][colInd] = this._currentPlayer;
 
-    if (this.isGameOver()) {
+    if (checkWinConditions(this.grid)) {
       this._winner = this._currentPlayer;
       return;
     }
@@ -77,29 +102,7 @@ class TicTacToe {
    * @returns {boolean} true if over, false otherwise.
    */
   isGameOver() {
-    if (this._winner !== null) {
-      return true;
-    }
-    const grid = this.grid;
-    if (
-      (grid[0][0] && grid[0][0] === grid[0][1] && grid[0][0] === grid[0][2]) ||
-      (grid[1][0] && grid[1][0] === grid[1][1] && grid[1][0] === grid[1][2]) ||
-      (grid[2][0] && grid[2][0] === grid[2][1] && grid[2][0] === grid[2][2]) ||
-      (grid[0][0] && grid[0][0] === grid[1][0] && grid[0][0] === grid[2][0]) ||
-      (grid[0][1] && grid[0][1] === grid[1][1] && grid[0][1] === grid[2][1]) ||
-      (grid[0][2] && grid[0][2] === grid[1][2] && grid[0][2] === grid[2][2]) ||
-      (grid[0][0] && grid[0][0] === grid[1][1] && grid[0][0] === grid[2][2]) ||
-      (grid[2][0] && grid[2][0] === grid[1][1] && grid[2][0] === grid[0][2]) ||
-      (grid[0][0] &&
-        grid[0][1] &&
-        grid[0][2] &&
-        grid[1][0] &&
-        grid[1][1] &&
-        grid[1][2] &&
-        grid[2][0] &&
-        grid[2][1] &&
-        grid[2][2])
-    ) {
+    if (this._winner !== null || isFull(this.grid)) {
       return true;
     }
     return false;
@@ -109,9 +112,9 @@ class TicTacToe {
    * Reset and start a new game.
    */
   reset() {
-    this.grid = newGameGrid();
-    this.currentPlayer = NOUGHT;
-    this.winner = null;
+    this._grid = newGameGrid();
+    this._currentPlayer = NOUGHT;
+    this._winner = null;
   }
 }
 
