@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Mogra&display=swap');
+
+.game__container {
+  font-family: 'Mogra', system-ui;
+  display: flex;
+  margin: 0 auto;
+  width: 30rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 30rem) {
+  .game__container {
+    width: 100%;
+  }
+}
+
+.game__container button {
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid black;
+}
+
+.game__container button:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  animation: slide-up 0.2s forwards;
+}
+
+.game__header {
+  font-size: 2rem;
+}
+
+.game__modal {
+  font-family: 'Mogra', system-ui;
+  text-align: center;
+}
+
+.game__modal[open] {
+  animation: modal-slide-down 0.5s forwards;
+}
+
+.game__modal-button_container {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: end;
+}
+
+.game__modal-button {
+  border: none;
+  margin-left: 0.5rem;
+  background-color: transparent;
+}
+
+.game__modal-button:hover {
+  border: none;
+  transition: background-color 0.5s;
+  animation: slide-up 0.2s forwards;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-0.25rem);
+  }
+}
+
+@keyframes modal-slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
