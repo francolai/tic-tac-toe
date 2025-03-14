@@ -9,16 +9,20 @@
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 @media (max-width: 30rem) {
   .game__container {
     width: 100%;
   }
 }
 
+=======
+>>>>>>> ui
 .game__container button {
   margin-top: 2rem;
   padding: 1rem;
   font-size: 1rem;
+<<<<<<< HEAD
   border: 1px solid black;
 }
 
@@ -29,6 +33,11 @@
   cursor: pointer;
   transition: background-color 0.5s;
   animation: slide-up 0.2s forwards;
+=======
+  font-family: inherit;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 100px;
+>>>>>>> ui
 }
 
 .game__header {
@@ -52,12 +61,17 @@
 }
 
 .game__modal-button {
+  outline: none;
   border: none;
   margin-left: 0.5rem;
   background-color: transparent;
+  font-family: inherit;
+  border-radius: 100px;
 }
 
 .game__modal-button:hover {
+  outline: none;
+  box-shadow: none;
   border: none;
   transition: background-color 0.5s;
   animation: slide-up 0.2s forwards;
@@ -80,3 +94,34 @@
     transform: translateY(0);
   }
 }
+<<<<<<< HEAD
+=======
+
+@media (max-width: 30rem) {
+  .game__container {
+    width: 100%;
+  }
+  .game__header {
+    font-size: 1.6rem;
+  }
+  .game__container button:active {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (min-width: 30rem) {
+  .game__container button:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    animation: slide-up 0.2s forwards;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+>>>>>>> ui

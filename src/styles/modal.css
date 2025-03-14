@@ -2,7 +2,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-button {
+/* button {
   margin-top: 0.5rem;
   padding: 0.5rem;
   font-family: inherit;
@@ -14,7 +14,7 @@ button:hover {
   background-color: black;
   color: white;
   cursor: pointer;
-}
+} */
 
 :focus-visible {
   outline: none;
